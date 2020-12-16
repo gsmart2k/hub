@@ -9,7 +9,7 @@ var bcrypt = require('bcrypt');
 
 app.set("view engine", "ejs")
 app.use('/', express.static('./views/css/'));
-const PORT =  4000
+const PORT = process.env.PORT || 4000
 var urlencodedparser = bodyparser.urlencoded({extended:false})
 app.use(expressValidator())
 app.use(expressSession({secret:"smart", saveUninitialized:false, resave: false}))
