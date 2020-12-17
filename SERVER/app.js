@@ -9,7 +9,7 @@ var bcrypt = require('bcrypt');
 
 app.set("view engine", "ejs")
 app.use('/', express.static('./views/css/'));
-const PORT =  process.env.PORT || 4000
+const port =  process.env.PORT || 4000
 var urlencodedparser = bodyparser.urlencoded({extended:false})
 app.use(expressValidator())
 app.use(expressSession({secret:"smart", saveUninitialized:false, resave: false}))
@@ -85,5 +85,5 @@ app.get('/', (req,res)=>{
        res.render("./dashboard", {title:"welcome",body:"You are welcome"})
       })
 
-app.listen(PORT)
+server.listen(port)
 console.log(`Server Now running on Port ${PORT}`)
