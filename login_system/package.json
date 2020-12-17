@@ -1,38 +1,4 @@
-Skip to content
- 
-Search or jump to…
 
-Pulls
-Issues
-Marketplace
-Explore
- 
-@gsmart2k 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
- 
-gsmart2k
-/
-hub
-1
-0 0
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-More
-hub/login_system/SERVER/package.json
-@gsmart2k
-gsmart2k Added a README.md file
-Latest commit e574c19 yesterday
- History
- 1 contributor
-30 lines (30 sloc)  697 Bytes
   
 {
   "name": "server",
@@ -64,15 +30,4 @@ Latest commit e574c19 yesterday
   "author": "",
   "license": "ISC"
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
