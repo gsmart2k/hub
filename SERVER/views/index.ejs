@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body">
+    
+    <div class="container">
+        <% if (errors) {%>
+            <div class="errosdiv">
+            <% for (var i=0; i<errors.length; i++) { %>
+                <p class="errors"><%= errors[i].msg %></p>
+            <% } %>
+            </div>
+         <% } %>
+         <% if (success) {%>
+            <div class="errosdiv">
+                <p class="errors"> Login Success !</p>
+            </div>
+         <% } %>
+        <form method="POST" action="" class="form-container">
+            <input placeholder="First Name"  type="text" class="first inputs" name="First_name" value="">
+        <input placeholder="E-mail"  type="text" class="second inputs email-field" name="email" value="">
+            <div class="email-options">
+                <ul class="email-options-ul">
+                    <li class="email-1">yahoo.com</li>
+                    <li class="email-2">gmail.com</li>
+                    <li class="email-3">hotmail.com</li>
+                    <li class="email-4">zmail.com</li>
+                </ul>
+            </div>
+            <input placeholder="Password"  type="password" class="inputs pw1" name="password" value="">
+            <input placeholder="Confirm Password"  type="password" class="inputs pw2" name="confirmPassword" value="">
+            <button class="btn"> SUBMIT </button>
+        </form>
+    </div>
+</body>
+
+<script async>
+    var emailfield = document.querySelector(".email-field");
+    var emailoptions = document.querySelector(".email-options");
+    var email1 = document.querySelector(".email-1");
+    var email2 = document.querySelector(".email-2");
+    var email3 = document.querySelector(".email-3");
+    var email4 = document.querySelector(".email-4");
+    var body = document.querySelector(".body")
+    var btn = document.querySelector(".btn")
+    var first = document.querySelector(".first")
+    var second = document.querySelector(".second")
+    var pw1 = document.querySelector(".pw1")
+    var pw2 = document.querySelector(".pw2")
+    var warning = document.querySelector(".warning")
+    var inputs = document.getElementsByClassName("inputs")
+
+    console.log(email1.textContent)
+
+   
+       // TO REMOVE THE block Class from the ClassList after a succesful input replacement
+        body.addEventListener('click',remove)
+
+        function remove(){
+        emailoptions.classList.remove("block")
+        }
+
+    emailfield.addEventListener("input", (e)=>{
+        emailfield.value = e.target.value
+        console.log(emailfield.value)
+        if (emailfield.value.includes("@")){
+            emailoptions.classList.add("block")
+                    email1.textContent = `${emailfield.value}gmail.com` 
+                    email2.textContent = `${emailfield.value}yahoo.com`  
+                    email3.textContent = `${emailfield.value}zmail.com`  
+                    email4.textContent = `${emailfield.value}outlook.com`  
+            }
+            email1.addEventListener("click",()=>{
+                emailfield.value = email1.textContent
+            })
+            email2.addEventListener("click",()=>{
+                emailfield.value = email2.textContent
+            })
+            email3.addEventListener("click",()=>{
+                emailfield.value = email3.textContent
+            })
+            email4.addEventListener("click",()=>{
+                emailfield.value = email4.textContent
+            })
+        if (emailfield.value.includes("@") === false){
+            emailoptions.classList.remove("block")
+        }
+
+
+    })
+  
+     
+         // HANDLING THE SHOW PASSWORDS EVENTS
+
+       if(pw1.type = "password"){
+        pw1.addEventListener("dblclick", ()=>{
+            pw1.type = "password" ? "text" : "password"
+            setTimeout(()=>{
+                pw1.type = "password"
+            },2000)
+        })
+    }
+        if(pw2.type = "password"){
+        pw2.addEventListener("dblclick", ()=>{
+            pw2.type = "password" ? "text" : "password"
+            setTimeout(()=>{
+                pw2.type = "password"
+            },2000)
+        })
+    }
+
+    //SHOW PASSWORDS EVENT ENDED HERE
+
+    // /..........
+
+    // EVENT LISTENER FOR VERIFYING IF PASSWORD AND CONFIRM PASSWORD VALUES ARE EQUAL
+
+    pw2.addEventListener("input", (e)=>{
+        if(pw1.value !== e.target.value){
+            console.log("noo")
+            pw2.classList.add("red")
+        }else{
+            pw2.classList.remove("red")
+
+        }
+    })
+
+   
+</script>
+</html>
